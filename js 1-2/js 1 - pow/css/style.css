@@ -10,15 +10,15 @@
     margin: 100px auto;
     background: #999;
     border: 5px solid #000;
+    font-family: Tahoma, Arial, sans-serif;
 }
-h1 {
-    margin-left: 50px;
+h2 {
+    margin-left: 70px;
     padding-top: 20px;
-    color: #
 }
 
 form {
-    padding: 60px;
+    padding: 60px 60px 0 60px;
 }
 
 input {
@@ -29,7 +29,6 @@ input {
     margin-bottom: 20px;
     text-align: center;
     font-size: 18px;
-    font-family: Tahoma, Arial, sans-serif;
     border-radius: 5px;
 }
 
@@ -52,13 +51,12 @@ label {
     background: #ee522b;
     border-radius: 5px;
 }
+
 #answer {
+    height: 50px;
     background: #fff;
-    width: 200px;
-    height: 20px;
-    margin: 0 auto;
-}
-h2 {
+    font-size: 30px;
     text-align: center;
-    color: #000;
+    padding-top: 10px;
+    box-sizing: content-box;
 }

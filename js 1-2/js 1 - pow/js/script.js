@@ -10,11 +10,11 @@ function pow() {
   
     if (n==0) {
         res = 1;
-    }else {
+    } else {
     for (var i = 1; i < n; i++) {
         res *= a;
-console.log('Результат: ', res);
-document.getElementById("answer").innerHTML = (res);
+    console.log('Результат: ', res);
+    document.getElementById("answer").innerHTML = (res);
     }
   }
   return res;

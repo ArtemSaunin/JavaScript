@@ -58,3 +58,7 @@
     background: linear-gradient(#000 1%, #fff 99%);
     color: red;
 }
+
+button, button:active, button:focus {
+    outline: none;
+}

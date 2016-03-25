@@ -1,0 +1,12 @@
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.list-group {
+  margin-top: 50px;
+}

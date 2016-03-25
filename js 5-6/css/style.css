@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'TH3 MACHINE';
+    src: url('../fonts/TH3 MACHINE.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    padding: 0;
+    margin: 0;
+    
+}
+
+.stopwatch {
+    width: 420px;
+    height: 420px;
+    margin: 50px auto;
+    background: #000;
+    border: 10px solid yellow;
+    border-radius: 210px;
+}
+
+#output {
+    display: block;
+    position: absolute;
+    top: 210px;
+    height: 70px;
+    width: 350px;
+    font-size: 60px;
+    margin-left: 20px;
+    padding: 20px;
+    font-family: 'TH3 MACHINE', arial;
+    color: white;
+    z-index: 2
+}
+
+#startPause {
+    position: absolute;
+    top: 60px;
+    width: 420px;
+    height: 210px;
+    border-radius: 200px 200px 0 0;
+    border: transparent;
+    font-family: 'TH3 MACHINE', Arial;
+    font-size: 60px;
+    color: lawngreen;
+    background: linear-gradient(#fff 1%, #000 95%);
+}
+
+#reset {
+    width: 420px;
+    height: 210px;
+    position: absolute;
+    top: 270px;
+    border-radius: 0 0 200px 200px;
+    border: transparent;
+    font-family: 'TH3 MACHINE', Arial;
+    font-size: 60px;
+    background: linear-gradient(#000 1%, #fff 99%);
+    color: red;
+}

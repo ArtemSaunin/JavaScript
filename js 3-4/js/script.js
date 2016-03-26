@@ -1,3 +1,5 @@
+'use strict'
+
 var qForm = {
 
     father:document.body,
@@ -11,18 +13,17 @@ var qForm = {
     check:'',
     div:[],
     result:'',
-
-
+    resultWrap:'',
 
     createForm:function() {
         this.wrapper = document.createElement('form');
-        this.wrapper.classList.add('container');
+        this.wrapper.classList.add('col-xs-6');
         this.father.appendChild(this.wrapper);
     },
 
     createHeader:function() {
         this.header = document.createElement('h1');
-        this.header.classList.add('header');
+        this.header.classList.add('header', 'text-center');
         this.header.innerHTML = 'Тест по программированию';
         this.wrapper.appendChild(this.header);
     },
@@ -48,23 +49,21 @@ var qForm = {
 
     createAnswer:function(i, j) {
         this.answer[i] = document.createElement('label');
-        this.answer[i].classList.add('answer');
+        this.answer[i].classList.add('box');
         this.answer[i].innerHTML = QBase[i].a[j];
         this.div[i] = document.createElement('div');
-        this.div[i].classList.add('checkbox', 'checkbox-primary');
+        this.div[i].classList.add('checkbox', 'checkbox-info');
         this.answerBlock[i].appendChild(this.div[i]);
         this.check = document.createElement('input');
         this.check.setAttribute('type', 'checkbox');
-        this.check.classList.add('checkbox-primary');
-        this.div[i].appendChild(this.check);
         this.div[i].appendChild(this.answer[i]);
-
+        this.answer[i].insertBefore(this.check, this.answer[i].firstChild);
     },
 
     createButton:function() {
         this.result = document.createElement('button');
         this.resultWrap = document.createElement('div');
-        this.resultWrap.classList.add('resultWrap');
+        this.resultWrap.classList.add('resultWrap', 'text-center');
         this.wrapper.appendChild(this.resultWrap);
         this.resultWrap.appendChild(this.result);
         this.result.setAttribute('type', 'submit');
@@ -79,7 +78,7 @@ var qForm = {
         for (var i = 0; i < QBase.length; i++) {
             this.createQuestion(i);
         };
-        for (var i = 0;i < QBase.length; i++) {
+        for (var i = 0; i < QBase.length; i++) {
             this.createAnswerBlock(i);
         };
         for (var i = 0; i < QBase.length; i++) {

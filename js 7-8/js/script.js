@@ -27,7 +27,6 @@ $(function() {
   /* формы двигаются по клику на таб */
   $('#navigation a').on('click', function(e) {
     var $this = $(this);
-    var prev = current;
     $this.closest('ul').find('li').removeClass('selected');
     $this.parent().addClass('selected');
 

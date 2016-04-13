@@ -4,10 +4,10 @@
   border: 0;
 }
 #wrapper {
-  width: 600px;
+  width: 800px;
   height: 100%;
   overflow: hidden;
-  background: #fbea44;
+  background: #fff741;
   box-shadow: 0 0 8px #2fbfa5;
   border: 15px solid #fff;
   margin: 50px auto;
@@ -15,7 +15,7 @@
 }
 
 form {
-  width: 600px;
+  width: 800px;
   height: 100%;
 }
 
@@ -40,7 +40,7 @@ form {
   display: block;
   padding: 10px;
   height: 25px;
-  background: #f49d30;
+  background: #ff8119;
   color: #fff;
   font-weight: bold;
   outline: none;
@@ -53,19 +53,17 @@ form {
 
 #form_item {
   float: left;
-  width: 600px;
+  width: 800px;
   margin-bottom: 50px;
 }
 #form_item h2 {
-  text-align: center;
-  width: 580px;
-  padding: 5px 0 5px 20px;
-  margin: 0px 0;
+  width: 780px;
+  padding: 5px 0 5px 200px;
   border-bottom: 5px solid #fff;
   border-top: 5px solid #fff;
   text-decoration: underline;
 }
-#form_item p {
+#form_item .box {
 float: left;
 clear: both;
 background: #2fbfa5;
@@ -97,14 +95,48 @@ box-shadow: 0 0 3px #aaa;
   text-align: center;
   text-shadow: 1px 1px 1px #000;
   outline: none;
+  cursor: help;
 }
 
 #form_item input:focus {
   background: #2fbfa5;
 }
-#tooltip {
-  position: relative;
-  left: 480px;
-  top: -30px;
-  visibility: hidden;
+
+input+div {
+  display: none;
+}
+
+.tooltip {
+  display: block;
+  width: 200px;
+  /*position: absolute;*/
+  margin-left: 470px;
+  margin-top: -35px;
+  background: #fff;
+  color: #2fbfa5;
+  border: 2px solid #ff8119;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+#show_help button {
+  float: right;
+  height: 45px;
+  color: #fff;
+  background: #ff8119;
+  margin-right: 8px;
+  font-family: Verdana, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0 10px 5px 10px;
+  outline: none;
+  animation: thumb 0.7s infinite linear;
+}
+
+@keyframes thumb {
+	0% { transform: scale(1); }
+	50% { transform: scale(0.9); }
+	100% { transform: scale(1); }
 }

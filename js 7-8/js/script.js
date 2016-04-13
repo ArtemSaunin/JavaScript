@@ -1,6 +1,14 @@
+'use strict'
 $(function() {
+
+  /* считаем количество табов */
   var tabsCount = $('form').children().length;
+
+  /* текущий таб */
   var current = 1;
+
+  /* суммируем и сохраняем ширину каждой формы
+  итоговая сумма будет шириной всех форм */
   var tabsWidth = 0;
   var widths = new Array();
   $('#tabs #form_item').each(function(i) {
@@ -9,29 +17,28 @@ $(function() {
     tabsWidth += $form_item.width();
   });
   $('#tabs').width(tabsWidth);
+
   $('form').width(tabsWidth);
   $('form').children(tabsWidth);
+
+  /* показываем табы */
   $('#navigation').show();
+
+  /* формы двигаются по клику на таб */
   $('#navigation a').on('click', function(e) {
     var $this = $(this);
     var prev = current;
     $this.closest('ul').find('li').removeClass('selected');
     $this.parent().addClass('selected');
+
+    /*сохраняем позицию ссылки в переменной*/
     current = $this.parent().index() + 1;
+
+    /*анимация - слайд на след. или соответвующую форму
+    Порядок табов в навиганции соответсвует порядку форм */
     $('#tabs').stop().animate( {
       marginLeft: '-' + widths[current - 1] + 'px'
-    }, 700, function() {
-      if(current == tabsCount)
-        validateTabs();
-      else
-        validateTabs(prev);
-      $('form').children(':nth-child('+ parseInt(current) +')').find(':input:first').focus();
     });
     e.preventDefault();
   });
-
-  // $('form > div').each(function() {
-  //   var $div = $(this);
-  //   $div.children(':last').find(':input').
-  // });
 });

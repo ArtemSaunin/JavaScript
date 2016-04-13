@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.main_menu {
+  margin: 0 auto;
+}
+.first_level_menu {
+
+}
+
+.first_level_item {
+  background: #663399;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  list-style: none;
+}
+
+.first_level_link {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+}
+
+.submenu_item {
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  background: #913D88;
+  list-style: none;
+  margin: 5px 0;
+  display: none;
+}
+
+.submenu_link {
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+}
+
+.submenu_item:hover .submenu_item {
+  display: block;
+}

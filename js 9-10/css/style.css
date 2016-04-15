@@ -11,6 +11,7 @@
     border-bottom: 2px solid #181818;
     border-top: 2px solid #303030;
     min-width: 160px;
+    text-shadow: 1px 1px 1px #000;
 }
 .menu li {
     display: block;
@@ -53,13 +54,15 @@
     background: #95A5A6;
     min-width: 160px;
     max-height: 58px;
+    text-shadow: 1px 1px 1px #000;
 }
 
-.submenu_item:hover a {
-    border-left: 3px solid #F9BF3B;
-    border-right: 3px solid #F9BF3B;
+.submenu_item:hover > a {
+    border-left: 3px solid #000;
+    border-right: 3px solid #000;
     color: #34495E;
     background: #BDC3C7;
+    /*animation: pulse 10s ease-in infinite;*/
 }
 .menu_item:hover .submenu, .menu_item:focus .submenu {
     max-height: 2000px;
@@ -69,27 +72,39 @@
     opacity: 1;
     transform: none;
 }
-
+/* submenu_sec styles */
 .submenu_sec {
-  display: none;
   position: absolute;
   top: 0;
-  left: 100%;
+  left: 0;
+  perspective: 300px;
 }
 
 .submenu_sec_item {
-  /*opacity: 1;*/
-  transition: opacity .6s;
-  background: #95A5A6;
+  opacity: 0;
+  transform: translate(500px, 0);
+  transition: opacity .1s, transform .5s;
+  background: #BDC3C7;
   min-width: 160px;
   max-height: 58px;
+  text-shadow: 1px 1px 1px #000;
 }
 
-.submenu_item:hover .submenu_sec {
-  display: block;
+.submenu_item:hover  .submenu_sec_item {
+  opacity: 1;
+  transform: none;
+  left: 100%;
 }
 
-/* CSS3 delays for transition effects */
+.submenu_sec_item:hover a {
+    border-left: 3px solid #000;
+    border-right: 3px solid #000;
+    color: #65a3b7;
+    background: #ECF0F1;
+    /*animation: pulse 5s ease-in infinite;*/
+}
+
+/* delays for transition effects */
 .menu li:hover .submenu li:nth-child(1) {
     transition-delay: 0s;
 }
@@ -138,4 +153,224 @@
 }
 .submenu li:nth-child(8) {
     transition-delay: 0s;
+}
+
+.submenu_item:hover .submenu_sec:nth-child(1) {
+    transition-delay: 0s;
+}
+.submenu_item:hover .submenu_sec:nth-child(2) {
+    transition-delay: 50ms;
+}
+.submenu_item:hover .submenu_sec:nth-child(3) {
+    transition-delay: 100ms;
+}
+.submenu_item:hover .submenu_sec:nth-child(4) {
+    transition-delay: 150ms;
+}
+.submenu_item:hover .submenu_sec:nth-child(5) {
+    transition-delay: 0s;
+}
+.submenu_item:hover .submenu_sec:nth-child(6) {
+    transition-delay: 50ms;
+}
+.submenu_item:hover .submenu_sec:nth-child(7) {
+    transition-delay: 100ms;
+}
+.submenu_item:hover .submenu_sec:nth-child(8) {
+    transition-delay: 150ms;
+}
+
+.submenu_sec_item:nth-child(1) {
+    transition-delay: 350ms;
+}
+.submenu_sec_item:nth-child(2) {
+    transition-delay: 300ms;
+}
+.submenu_sec_item:nth-child(3) {
+    transition-delay: 250ms;
+}
+.submenu_sec_item:nth-child(4) {
+    transition-delay: 200ms;
+}
+.submenu_sec_item:nth-child(5) {
+    transition-delay: 350ms;
+}
+.submenu_sec_item:nth-child(6) {
+    transition-delay: 300ms;
+}
+.submenu_sec_item:nth-child(7) {
+    transition-delay: 250ms;
+}
+.submenu_sec_item:nth-child(8) {
+    transition-delay: 200ms;
+}
+
+/* bg-color pulsing on hover */
+@keyframes pulse {
+  0% {
+    background-color: #F22613;
+  }
+  14% {
+    background-color: #F89406;
+  }
+  28% {
+    background-color: #F7CA18;
+  }
+  43% {
+    background-color: #2ECC71;
+  }
+  57% {
+    background-color: #19B5FE;
+  }
+  72% {
+    background-color: #446CB3;
+  }
+  86% {
+    background-color: #663399;
+  }
+  100% {
+    background-color: #F64747;
+  }
+}
+/* end of menu styles */
+
+
+/* positioning select */
+.select_plugin {
+  float: right;
+  /*position: relative;
+  top: -58px;*/
+}
+
+/* carousel styling */
+.jcarousel-wrapper {
+    margin: 35px;
+    position: relative;
+    border: 10px solid #6C7A89;
+    width: 700px;
+    height: 380px;
+    box-shadow: 0 0 2px #999;
+}
+
+.jcarousel-wrapper .photo-credits {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+    opacity: .66;
+}
+
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.jcarousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.jcarousel li {
+    float: left;
+    width: 700px;
+    height: 380px;
+}
+
+.jcarousel-control-next {
+    position: absolute;
+    top: 115px;
+    opacity: 0;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.jcarousel-control-prev {
+    position: absolute;
+    top: 115px;
+    opacity: 0;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.jcarousel:hover .jcarousel-control-prev {
+  opacity: 0.5;
+  left: 0;
+  border-style: solid;
+  border-width: 75px 50px 75px 0px;
+  border-color: transparent #fff transparent transparent ;
+}
+
+.jcarousel:hover .jcarousel-control-next {
+  opacity: 0.5;
+  right: 0;
+  border-style: solid;
+  border-width: 75px 0 75px 50px;
+  border-color: transparent transparent transparent #fff;
+}
+
+/* checkbox styling */
+.css_checkbox {
+  margin: 50px;
+  width: 400px;
+  font-size: 40px;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+label {
+  cursor:pointer;
+  color: #555;
+}
+input[type="checkbox"]:checked + label {
+  color: #95A5A6;
+  text-shadow: 2px 2px 2px #000;
+}
+input[type="checkbox"] + label span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 45px;
+    height: 45px;
+    border: 5px solid #6C7A89;
+    border-radius: 35px;
+    background: radial-gradient(#F2F1EF, #BDC3C7);
+    margin: 20px 0;
+}
+
+input[type="checkbox"] + label span::before {
+  content: "";
+  display: block;
+}
+
+input[type="checkbox"]:checked + label span::before {
+   content: "✓";
+   color: #95A5A6;
+   text-align: center;
+   font-size: 60px;
+   font-weight: bolder;
+   line-height: 0.6;
+}
+
+/* jquery checkbox styling */
+.jquery_checkbox {
+  margin: 20px;
+  float: left;
+}
+.niceCheck {
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    cursor: pointer;
+    background: url(..img/checkbox-sprite.png);
+}
+.niceCheck input {
+    /*display: none;*/
 }

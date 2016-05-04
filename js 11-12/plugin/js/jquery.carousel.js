@@ -170,7 +170,6 @@ $.fn.myCarousel = function(options) {
     }
   }
 	prevnext();
-	// prev and next buttons
   
 	return this; 
 	};

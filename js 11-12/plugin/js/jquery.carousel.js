@@ -1,6 +1,5 @@
-
 (function ($) {
-'use strict'
+'use strict';
 
 $.fn.myCarousel = function(options) {
  
@@ -30,16 +29,16 @@ $.fn.myCarousel = function(options) {
     
       	this.find('li').last().css({
           'display': 'block'
-        })
+        });
 
 	// show all images after timeout so that page loads cleaner and faster
-	var $carousel = this
+	var $carousel = this;
     setTimeout(function() {
 		$carousel.find('li').css({
 			'display': 'block',
 			'z-index': '100'
 		});
-	}, 200)
+	}, 200);
 	
 	// start carousel & effects
 	var numberOfLis = this.find('li').length;
@@ -49,7 +48,7 @@ $.fn.myCarousel = function(options) {
 	function autoslide() {
 		sliderTimeout =
 		setInterval(function(){
-			var $currentChild = $carousel.find('li:nth-child(' + count + ')')
+			var $currentChild = $carousel.find('li:nth-child(' + count + ')');
       if (settings.effect == 'fade') {
         $currentChild.fadeOut('slow', function() {
           $currentChild.css({
@@ -65,7 +64,7 @@ $.fn.myCarousel = function(options) {
           });
         });
       } else if (settings.effect == 'slide') {
-        $currentChild.css('left', '-1000px')
+        $currentChild.css('left', '-1000px');
         $currentChild.fadeOut('slow', function() {
           $currentChild.css({
             'z-index': (parseInt($currentChild.css('z-index')) - 1),
@@ -76,7 +75,7 @@ $.fn.myCarousel = function(options) {
       } else if (settings.effect == 'shrink') {
         $currentChild.css({
           'transform': 'scale(0)'
-        })
+        });
         $currentChild.fadeOut('slow', function() {
           $currentChild.css({
             'z-index':(parseInt($currentChild.css('z-index')) - 1),
@@ -86,30 +85,30 @@ $.fn.myCarousel = function(options) {
         });
       }
 			if (count == 1) { 
-				count = numberOfLis
+				count = numberOfLis;
 			} else {
-				count--
+				count--;
 			}
-		}, settings.slidetime)
+		}, settings.slidetime);
 	
 	} 
 	
 
 	setTimeout(function() {
-		autoslide() 
-	}, 500)
+		autoslide();
+	}, 500);
 	
     
   // control buttons
   function prevnext() {
-    if(($carousel.find('li img').length) && ($carousel.find('li img').last().height() == 0)) {
+    if(($carousel.find('li img').length) && ($carousel.find('li img').last().height() === 0)) {
       setTimeout(function() {
-        prevnext()
-      }, 75)
+        prevnext();
+      }, 75);
     	
     } else if (settings.arrows == 'show') {
-      $carousel.append('<div class="slide-next">&#8667;</div><div class="slide-prev">&#8666;</div>')
-      var theHeight = $carousel.find('li').last().height()
+      $carousel.append('<div class="slide-next">&#8667;</div><div class="slide-prev">&#8666;</div>');
+      var theHeight = $carousel.find('li').last().height();
       $('.slide-next').css({
           'top': ((theHeight / 2) - (settings.arrowSize / 2)),
           'position': 'absolute',
@@ -119,7 +118,7 @@ $.fn.myCarousel = function(options) {
           'cursor': 'pointer',
           'font-size': settings.arrowSize + 'px',
           'text-shadow': '1px 1px 1px #000'
-       })
+       });
       $('.slide-prev').css({
           'top':((theHeight / 2) - (settings.arrowSize / 2)),
           'position': 'absolute',
@@ -129,42 +128,42 @@ $.fn.myCarousel = function(options) {
           'cursor': 'pointer',
           'font-size': settings.arrowSize + 'px',
           'text-shadow': '1px 1px 1px #000'
-       })
+       });
       
             $('.slide-prev, .slide-next').on('click',function() {
               clearInterval(sliderTimeout); // reset the timer on the autoslider
               if ($(this).hasClass('slide-next')) { // if it was the next button
-                $carousel.find('li:nth-child(' + count + ')').css('left', '-1000px')
+                $carousel.find('li:nth-child(' + count + ')').css('left', '-1000px');
                 $carousel.find('li:nth-child(' + count + ')').fadeOut('slow', function() {
                   $(this).css({
                     'display': 'block',
                     'left': '0',
                     'z-index': (parseInt($(this).css('z-index')) - 1)
-                  })
-                })
+                  });
+                });
                 if (count == 1) { 
-                  count = numberOfLis
+                  count = numberOfLis;
                 } else {
-                  count--
+                  count--;
                 }
               } else {  // if it was the prev button
-                $carousel.find('li:nth-child(' + count + ')').css('left', '1000px')
+                $carousel.find('li:nth-child(' + count + ')').css('left', '1000px');
                 $carousel.find('li:nth-child(' + count + ')').fadeOut('slow', function() {
                   $(this).css({
                     'display': 'block',
                     'left': '0',
                     'z-index': (parseInt($(this).css('z-index')) - 1)
-                  })
-                })
+                  });
+                });
                 if (count == 1) { 
-                  count = numberOfLis
+                  count = numberOfLis;
                 } else {
-                  count--
+                  count--;
                 }
               }
               setTimeout(function() {
                 autoslide(); // restart the autoslider
-              }, 500)
+              }, 500);
             }); 
 
     }

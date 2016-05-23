@@ -1,0 +1,10 @@
+
+.carosel_wrapper {
+    overflow: hidden;
+}
+
+.carousel {
+    width: 700px;
+    margin: 50px auto;
+    color: #fff;
+}
